@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/assets/example.css" />
+  </head>
+
+  <body>
+    Клик покажет об2а: и <code>event.target</code>, и <code>this</code> для
+    сравнения:
+
+    <form id="form">
+      FORM
+      <div id="div">
+        DIV
+        <p id="p">P</p>
+      </div>
+    </form>
+
+    <script>
+      div.addEventListener("click", (e) => {
+        console.log("Div listener for click");
+        e.stopImmediatePropagation();
+      });
+      div.addEventListener("click", (e) =>
+        console.log("Div listener for click 2")
+      );
+      form.addEventListener("click", (e) =>
+        console.log("form listener for click")
+      );
+      p.addEventListener("click", (e) => console.log("p listener for click"));
+    </script>
+  </body>
+</html>
